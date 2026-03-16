@@ -1,0 +1,242 @@
+:root {
+
+--lg-bg: rgba(20,20,25,0.45);
+--lg-border: rgba(255,255,255,0.12);
+--lg-highlight: rgba(255,255,255,0.25);
+--lg-text: rgba(255,255,255,0.9);
+
+--lg-glow: rgba(120,150,255,0.25);
+
+}
+
+/* ===== PAGE ===== */
+
+body{
+margin:0;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro",sans-serif;
+
+background:
+radial-gradient(circle at 20% 20%,#2a2a3f,#09090d 60%);
+
+color:var(--lg-text);
+}
+
+
+/* ===== CONTAINER ===== */
+
+.container{
+display:flex;
+align-items:center;
+justify-content:center;
+margin:2rem 0;
+}
+
+.container--inline{
+flex-direction:row;
+}
+
+
+/* ===== LIQUID GLASS ===== */
+
+.glass-container{
+
+position:relative;
+display:flex;
+align-items:center;
+
+border-radius:30px;
+
+background:var(--lg-bg);
+
+backdrop-filter:blur(40px) saturate(180%);
+-webkit-backdrop-filter:blur(40px) saturate(180%);
+
+border:1px solid var(--lg-border);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.6),
+inset 0 1px 0 rgba(255,255,255,0.15),
+inset 0 -1px 0 rgba(0,0,0,0.3);
+
+overflow:hidden;
+
+transition:all .35s ease;
+}
+
+.glass-container:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,0.8),
+0 0 25px var(--lg-glow);
+
+}
+
+
+/* ===== SPECULAR LIGHT ===== */
+
+.glass-specular{
+
+position:absolute;
+inset:0;
+
+pointer-events:none;
+
+background:
+linear-gradient(
+120deg,
+rgba(255,255,255,0.35) 0%,
+rgba(255,255,255,0.08) 20%,
+transparent 40%
+);
+
+mix-blend-mode:overlay;
+
+opacity:.6;
+
+}
+
+
+/* ===== GLASS CONTENT ===== */
+
+.glass-content{
+
+position:relative;
+z-index:2;
+
+display:flex;
+align-items:center;
+gap:22px;
+
+padding:18px 24px;
+
+}
+
+
+/* ===== PLAYER ===== */
+
+.player{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.player__thumb{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.player__img{
+width:70px;
+border-radius:12px;
+
+box-shadow:
+0 6px 20px rgba(0,0,0,0.7);
+}
+
+.player__legend{
+display:flex;
+flex-direction:column;
+}
+
+.player__legend__title{
+font-size:16px;
+font-weight:600;
+}
+
+.player__legend__sub-title{
+font-size:13px;
+opacity:.6;
+}
+
+
+/* ===== CONTROLS ===== */
+
+.player__controls{
+display:flex;
+gap:18px;
+align-items:center;
+}
+
+.player__controls svg{
+
+fill:white;
+opacity:.7;
+
+transition:all .2s ease;
+
+cursor:pointer;
+}
+
+.player__controls svg:hover{
+
+opacity:1;
+transform:scale(1.15);
+
+filter:drop-shadow(0 0 6px rgba(255,255,255,0.4));
+
+}
+
+
+/* ===== DOCK ICONS ===== */
+
+.glass-content a img{
+
+width:70px;
+
+border-radius:18px;
+
+transition:
+transform .25s ease,
+filter .25s ease;
+
+}
+
+.glass-content a img:hover{
+
+transform:scale(1.15) translateY(-6px);
+
+filter:
+drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+
+}
+
+
+/* ===== SEARCH BUTTON ===== */
+
+.glass-item{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:80px;
+height:80px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.05);
+
+transition:all .25s ease;
+}
+
+.glass-item:hover{
+
+background:rgba(255,255,255,0.12);
+
+box-shadow:0 0 15px rgba(255,255,255,0.1);
+
+}
+
+.glass-item svg{
+
+fill:white;
+opacity:.8;
+}
